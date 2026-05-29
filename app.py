@@ -9,13 +9,16 @@ from main import app
 
 # re-export for clarity
 __all__ = ["app"]
+import os
 import requests
 import streamlit as st
 
 # =============================
 # CONFIG
 # =============================
-API_BASE = "https://movie-recommendation-system-hvmv.onrender.com"
+API_BASE = os.getenv(
+    "API_BASE", "https://movie-recommendation-system-hvmv.onrender.com"
+).rstrip("/")
 TMDB_IMG = "https://image.tmdb.org/t/p/w500"
 
 st.set_page_config(page_title="Movie Recommender", page_icon="🎬", layout="wide")
